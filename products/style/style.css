@@ -1,0 +1,456 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding-top: 60px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    transition: height 0.3s ease; /* Smooth height transition */
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Sancreek", serif;
+    color: #333;
+    padding: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: white;
+    padding: 5px 10px;
+    border: black solid 2px;
+    transition: all 0.3s ease;
+}
+
+.cart-container a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+    padding: 5px;
+}
+
+.cart-container svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.cart-container svg path,
+.cart-container svg circle {
+    stroke: black;
+    fill: black;
+    transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+    padding: 6px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle svg path {
+    stroke: white;
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.menu-toggle span {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+}
+
+.menu-container:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    color: #555;
+}
+
+.menu-container:hover ~ nav,
+.menu-container:hover nav {
+    height: auto; 
+    min-height: 120px;
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.banner-header {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 12px;
+}
+
+/* Sale Section (Nike-Inspired with Template Modifications) */
+.sale {
+    padding: 60px 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sale-panel {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sort-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sort-select {
+    padding: 10px 14px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #111;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    background-color: #fff;
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    min-width: 160px;
+    transition: border-color 0.2s ease;
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: #111;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.product-card {
+    background-color: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Mimics Nike's image proportions */
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.sale-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: #e63946;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+}
+
+.product-info {
+    padding: 12px; /* Reduced padding to slightly reduce height */
+    text-align: left;
+}
+
+.time {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #2ecc71; /* Green color for .time */
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.product-name {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+    text-transform: capitalize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.category {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #111;
+    opacity: 0.6; /* Reduced opacity for .category */
+    margin-bottom: 6px;
+}
+
+.colors {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #111;
+    opacity: 0.6; /* Reduced opacity for .colors */
+    margin-bottom: 8px;
+}
+
+.price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.sale-price {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.original-price {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #707070;
+    text-decoration: line-through;
+}
+
+.add-to-cart {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #333;
+    transform: translateY(-1px);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .logo a {
+        font-size: 1.3em; /* Reduced font size for tablets */
+    }
+
+    .sale {
+        padding: 40px 16px;
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .product-image {
+        aspect-ratio: 3 / 4;
+    }
+
+    .time {
+        font-size: 0.8rem;
+    }
+
+    .product-name {
+        font-size: 0.95rem;
+    }
+
+    .category,
+    .colors {
+        font-size: 0.85rem;
+    }
+
+    .sale-price {
+        font-size: 1rem;
+    }
+
+    .original-price {
+        font-size: 0.85rem;
+    }
+
+    .add-to-cart {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo a {
+        font-size: 1.1em; /* Further reduced font size for mobile */
+    }
+
+    .sale {
+        padding: 30px 12px;
+    }
+
+    .sort-container {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .sort-select {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .product-image {
+        aspect-ratio: 4 / 5;
+    }
+}
